@@ -1,3 +1,16 @@
+######################################################################################################
+# Лабораторная работа 1 по дисциплине ЛОИС
+# Выполненая студентами группы 221701 БГУИР Глёза Егором Дмитриевичем и Крупским Артёмом Викторович
+#
+# Класс решателя полиномиальных уравнений
+#
+# Источники:
+# 
+# - Нечёткая логика: алгебраическая основы и приложения: Монография / С.Л. Блюмин, И.А. Шуйкова,
+#   П.В. Сараев, И.В. Черпаков. - Липецк: ЛЭГИ, 2002. - 111с. 
+#
+# 1.11.2024
+#
 from abc import ABC, abstractmethod
 
 import intervals as I
@@ -28,17 +41,6 @@ class PolynomialEquationSolver(ABC):
     @abstractmethod
     def make_intervals(self, base: FuzzySet, branch: FuzzySet) -> list[I.Interval]:
         pass
-
-    def solve(self, a: FuzzySet, b: float) -> list:
-        if self.is_solution_empty(a, b):
-            return []
-        base = self.base_solution(a, b)
-        answer = []
-        for branch_solution in self.branch_solutions(a, b):
-            branch_answer = self.make_intervals(base, branch_solution)
-            answer.append(branch_answer)
-        
-        return answer
     
 
 class ProductPolynomialEquationSolver(PolynomialEquationSolver):

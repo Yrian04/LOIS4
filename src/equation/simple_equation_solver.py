@@ -1,3 +1,16 @@
+######################################################################################################
+# Лабораторная работа 1 по дисциплине ЛОИС
+# Выполненая студентами группы 221701 БГУИР Глёза Егором Дмитриевичем и Крупским Артёмом Викторович
+#
+# Класс решателя простых уравнений
+#
+# Источники:
+# 
+# - Нечёткая логика: алгебраическая основы и приложения: Монография / С.Л. Блюмин, И.А. Шуйкова,
+#   П.В. Сараев, И.В. Черпаков. - Липецк: ЛЭГИ, 2002. - 111с. 
+#
+# 1.11.2024
+#
 from abc import ABC, abstractmethod
 
 import intervals as I
@@ -19,11 +32,6 @@ class SimpleEquationSolver(ABC):
     @abstractmethod
     def _solve(self, a: float, b: float) -> I.Interval:
         pass
-
-    def solve(self, a: float, b: float) -> I.Interval:
-        if self.is_solution_empty(a, b):
-            return I.empty()
-        return self._solve(a, b)
     
 
 class ProductSimpleEquationSolver(SimpleEquationSolver):
