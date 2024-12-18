@@ -38,7 +38,7 @@ class FuzzySet:
             
             self._membership.update(membership)
             
-        self._membership = pd.Series(self._membership)
+        self._membership = pd.Series(self._membership, dtype=np.float64)
     
     @property
     def domain(self) -> np.ndarray:
@@ -83,18 +83,4 @@ class FuzzySet:
     
     def __str__(self) -> str:
         return f'{{{ ", ".join(f"<{x}, {y}>" for x, y in self._membership.items()) }}}'
-    
-    
-if __name__ == '__main__':
-    s = FuzzySet(
-        {
-            'a': 0.2,
-            'b': 0.8,
-            'c': 0.43
-        },
-        ['a', 'b', 'c', 'd']
-    )
-    print(s)
-    print(s.domain)
-    print(s.membership)
     

@@ -64,23 +64,4 @@ class ProductPolynomialEquationSolver(PolynomialEquationSolver):
         pairs = zip(branch.membership, base.membership)
         intervals = [*map(lambda x: I.closed(float(x[0]), float(x[1])), pairs)]
         return intervals
-    
-
-if __name__ == '__main__':
-    from .simple_equation_solver import ProductSimpleEquationSolver
-
-    solver = ProductPolynomialEquationSolver(ProductSimpleEquationSolver())
-    print(
-        solver.solve(
-            FuzzySet(
-                {
-                    'x1': 0.2,
-                    'x2': 0.7,
-                    'x3': 0.0,
-                    'x4': 0.5
-                }
-            ),
-            0.4
-        )
-    )
         

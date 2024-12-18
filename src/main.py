@@ -39,7 +39,7 @@ def main(input_file: str):
         print("No solutions")
         return
 
-    print(''.join('(' + 'x'.join(str(x) for x in branch) + ')' for branch in answer) + ' э <' + 
+    print('U'.join('(' + 'x'.join(str(x) for x in branch) + ')' for branch in answer) + ' э <' + 
           ','.join(f"{name}({x})" for x in rule.domain) + '>')
     
 

@@ -53,7 +53,6 @@ class SystemEquationSolver:
                     break
             else:
                 branches.append(branch)
-            
         
         answer = []
         for branch_solution in branches:
@@ -61,35 +60,3 @@ class SystemEquationSolver:
             answer.append(branch_answer)
 
         return answer
-
-
-if __name__ == '__main__':
-    from .polynomial_equation_solver import ProductPolynomialEquationSolver
-    from .simple_equation_solver import ProductSimpleEquationSolver
-    from ..logic import FuzzyLogicAlgebra
-    from ..set import FuzzySet
-
-    solver = SystemEquationSolver(
-        ProductPolynomialEquationSolver(
-            ProductSimpleEquationSolver()
-        ),
-        FuzzySetAlgebra(
-            FuzzyLogicAlgebra()
-        )
-    )
-
-    consequent = FuzzySet(
-        {
-            'y1': 0.0,
-            'y2': 0.7,
-        }
-    )
-
-    rule = FuzzyMap(
-        {
-            'x1': {'y1': 0.0, 'y2': 0.7},
-            'x2': {'y1': 0.0, 'y2': 0.0},
-        }
-    )
-
-    print(solver.solve(rule, consequent))

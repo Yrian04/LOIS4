@@ -46,8 +46,3 @@ class ProductSimpleEquationSolver(SimpleEquationSolver):
     
     def _solve(self, a, b):
         return I.closed(self.min(a, b), self.max(a, b))
-    
-
-if __name__ == '__main__':
-    solver = ProductSimpleEquationSolver()
-    print(solver.solve(0.4, 0.2))

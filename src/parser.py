@@ -76,21 +76,3 @@ class Parser:
             ),
         )
         return tokens[self.tags.NAME], consequent, rule
-    
-
-if __name__ == '__main__':
-    text = """isTall
-
-x1  x2  x3
-1   0   0
-0.5 0.3 0.2
-
-y1 y2
-1  0.5
-"""
-    lexer = Parser()
-    try:
-        print(text)
-        print(*lexer.parse(text), sep='\n')
-    except ParseException as e:
-        print(e)

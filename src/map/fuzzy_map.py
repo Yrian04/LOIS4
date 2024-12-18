@@ -36,6 +36,7 @@ class FuzzyMap:
                 data=np.zeros((len(domain), len(codomain))),
                 index=domain,
                 columns=codomain,
+                dtype=np.float64
             )
             return
             
@@ -108,23 +109,3 @@ class FuzzyMap:
     
     def __str__(self) -> str:
         return str(self._matrix)
-          
-                    
-if __name__ == '__main__':
-    m = FuzzyMap(
-        {
-            'a': {
-                '1': 0.2,
-                '2': 0.4,
-            },
-            'b': {
-                '1': 0.9,
-            },
-        },
-        # keys=['a', 'b', 'c'],
-        codomain=['1', '2', '3'],
-    )             
-    print(m)
-    print(m.xcut('a'))
-    print(m.ycut('1'))
-    print(m['a', '1'])      
